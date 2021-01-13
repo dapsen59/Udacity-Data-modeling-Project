@@ -17,7 +17,7 @@ user_table_create = """ CREATE TABLE users (user_id text, first_name text, last_
 song_table_create = """ CREATE TABLE songs (song_id text, title text, artist_id text, year int, duration int, PRIMARY KEY ( song_id, artist_id ) )
 """
 
-artist_table_create = """ CREATE TABLE artists (artist_id text, name text, location text, latitude char, longitude char, PRIMARY KEY ( artist_id ) )
+artist_table_create = """ CREATE TABLE artists (artist_id text, name text, location text, latitude numeric, longitude numeric, PRIMARY KEY ( artist_id ) )
 """
 
 time_table_create = """ CREATE TABLE time (start_time int, hour int , day char, week char, month char,  weekday char, PRIMARY KEY ( start_time ) )
