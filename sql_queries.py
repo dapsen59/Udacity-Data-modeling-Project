@@ -20,7 +20,7 @@ song_table_create = """ CREATE TABLE songs (song_id text, title text, artist_id 
 artist_table_create = """ CREATE TABLE artists (artist_id text, name text, location text, latitude numeric, longitude numeric, PRIMARY KEY ( artist_id ) )
 """
 
-time_table_create = """ CREATE TABLE time (start_time int, hour int , day char, week char, month char,  weekday char, PRIMARY KEY ( start_time ) )
+time_table_create = """ CREATE TABLE time (start_time text, hour int, day int, week int, month int, year int,  weekday int, PRIMARY KEY ( start_time ) )
 """
 
 # INSERT RECORDS
@@ -34,7 +34,7 @@ song_table_insert = """INSERT INTO songs (song_id, title, artist_id, year, durat
 artist_table_insert = """INSERT INTO artists(artist_id, name, location, latitude, longitude)  VALUES( %, %, %, %, %); """
 
 
-time_table_insert = """INSERT INTO time (start_time, hour, day, week, month, weekday)  VALUES( %, %, %, %, %, %); """
+time_table_insert = """INSERT INTO time (start_time, hour, day, week, month, year, weekday)  VALUES( %, %, %, %, %, %, %); """
 
 #print(songplay)
 
