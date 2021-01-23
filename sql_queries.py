@@ -11,7 +11,7 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 songplay_table_create = """ CREATE TABLE songplays (songplay_id text, start_time int, user_id text, level char, song_id text, artist_id text, session_id text, location text, user_agent text, PRIMARY KEY ( user_id, artist_id))
 """
 
-user_table_create = """ CREATE TABLE users (user_id text, first_name text, last_name text, gender char, level char, PRIMARY KEY ( user_id) )
+user_table_create = """ CREATE TABLE users (user_id text, first_name text, last_name text, gender char, level text, PRIMARY KEY ( user_id) )
 """
 
 song_table_create = """ CREATE TABLE songs (song_id text, title text, artist_id text, year int, duration int, PRIMARY KEY ( song_id, artist_id ) )
@@ -27,14 +27,14 @@ time_table_create = """ CREATE TABLE time (start_time text, hour int, day int, w
 
 songplay_table_insert = """INSERT INTO songplay (songplay_id, start_time, user_id, level, song_id, artist_id,  session_id, location, user_agent) VALUES( %, %, %, %, %, %, %, %, %);"""
 
-user_table_insert = """INSERT INTO users ( user_id, first_name, last_name, gender, level) VALUES( %, %, %, %, %); """
+user_table_insert = """INSERT INTO users ( user_id, first_name, last_name, gender, level) VALUES( %s, %s, %s, %s, %s); """
 
 song_table_insert = """INSERT INTO songs (song_id, title, artist_id, year, duration)  VALUES( %, %, %, %, %); """
 
 artist_table_insert = """INSERT INTO artists(artist_id, name, location, latitude, longitude)  VALUES( %, %, %, %, %); """
 
 
-time_table_insert = """INSERT INTO time (start_time, hour, day, week, month, year, weekday)  VALUES( %, %, %, %, %, %, %); """
+time_table_insert = """INSERT INTO time (start_time, hour, day, week, month, year, weekday)  VALUES( %s, %s, %s, %s, %s, %s, %s); """
 
 #print(songplay)
 
