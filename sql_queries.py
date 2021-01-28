@@ -27,7 +27,7 @@ time_table_create = """ CREATE TABLE time (start_time text, hour int, day int, w
 
 songplay_table_insert = """INSERT INTO songplay (songplay_id, start_time, user_id, level, song_id, artist_id,  session_id, location, user_agent) VALUES( %, %, %, %, %, %, %, %, %);"""
 
-user_table_insert = """INSERT INTO users ( user_id, first_name, last_name, gender, level) VALUES( %s, %s, %s, %s, %s); """
+user_table_insert = """INSERT INTO users ( user_id, first_name, last_name, gender, level) VALUES( %s, %s, %s, %s, %s) ON CONFLICT(user_id) DO NOTHING; """
 
 song_table_insert = """INSERT INTO songs (song_id, title, artist_id, year, duration)  VALUES( %, %, %, %, %); """
 
