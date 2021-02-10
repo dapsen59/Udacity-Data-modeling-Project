@@ -8,7 +8,7 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 
 # CREATE TABLES
 
-songplay_table_create = """ CREATE TABLE songplays (songplay_id text, start_time int, user_id text, level char, song_id text, artist_id text, session_id text, location text, user_agent text, PRIMARY KEY ( user_id, artist_id))
+songplay_table_create = """ CREATE TABLE songplays (songplay_id serial, start_time int, user_id text, level char, song_id text, artist_id text, session_id text, location text, user_agent text, PRIMARY KEY ( user_id, artist_id))
 """
 
 user_table_create = """ CREATE TABLE users (user_id text, first_name text, last_name text, gender char, level text, PRIMARY KEY ( user_id) )
@@ -34,7 +34,7 @@ song_table_insert = """INSERT INTO songs (song_id, title, artist_id, year, durat
 artist_table_insert = """INSERT INTO artists(artist_id, name, location, latitude, longitude)  VALUES( %, %, %, %, %)ON CONFLICT(artist_id) DO NOTHING; """
 
 
-time_table_insert = """INSERT INTO time (start_time, hour, day, week, month, year, weekday)  VALUES( %s, %s, %s, %s, %s, %s, %s)CONFLICT(start_time) DO NOTHING; """
+time_table_insert = """INSERT INTO time (start_time, hour, day, week, month, year, weekday)  VALUES( %s, %s, %s, %s, %s, %s, %s) ON CONFLICT(start_time) DO NOTHING; """
 
 #print(songplay)
 
